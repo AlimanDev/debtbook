@@ -1,0 +1,23 @@
+[
+  {
+    "model": "contacts.Currency",
+    "pk": 1,
+    "fields": {
+      "name": "UZS"
+    }
+  },
+  {
+    "model": "contacts.Currency",
+    "pk": 2,
+    "fields": {
+      "name": "USD"
+    }
+  },
+  {
+    "model": "contacts.Currency",
+    "pk": 3,
+    "fields": {
+      "name": "RUB"
+    }
+  }
+]
