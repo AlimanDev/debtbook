@@ -43,8 +43,7 @@ class Contact(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        if self.accounts.count() < 2 and self.get_account_from_contact():
-            self.accounts.add(self.get_account_from_contact())
+        self.add_contact_to_accounts()
 
 
 class Currency(models.Model):
