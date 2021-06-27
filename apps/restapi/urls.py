@@ -17,5 +17,6 @@ urlpatterns = [
     # debt
     path('payment/', rest_views.PaymentAPIView.as_view({'post': 'create'})),
     path('payment/<int:pk>/', rest_views.PaymentAPIView.as_view({'get': 'retrieve', 'put': 'update'})),
-    path('payment/list/contact/<int:pk>/', rest_views.PaymentAPIView.as_view({'get': 'list'})),
+    # path('payment/list/contact/<int:pk>/', rest_views.PaymentAPIView.as_view({'get': 'list'})),
+    path('payment/list/contact/<int:pk>/', rest_views.PaymentAPIListView.as_view()),
 ]

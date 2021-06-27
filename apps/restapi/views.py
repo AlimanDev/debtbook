@@ -2,6 +2,7 @@ from rest_framework import generics, viewsets, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
+from apps.restapi import pagination
 from apps.users import models as user_models
 from apps.users import serializers as user_serializers
 from apps.contacts import models as contact_models
@@ -68,6 +69,7 @@ class ContactAPIView(viewsets.ModelViewSet):
     queryset = contact_models.Contact.objects.all()  # TODO: скрыть 'удалённые/скрытые' контакты
     permission_classes = [permissions.IsAuthenticated]
     http_method_names = ['get', 'put', 'post']
+    pagination_class = pagination.CustomPagination
 
     def create(self, request, *args, **kwargs):
         """ Для создания контакта """
@@ -89,6 +91,7 @@ class PaymentAPIListView(generics.ListAPIView):
     serializer_class = contact_serializers.PaymentSerializer
     permission_classes = [permissions.IsAuthenticated]
     lookup_field = 'pk'
+    pagination_class = pagination.CustomPagination
 
     def get_queryset(self):
         try:
